@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Snakes</string>
+    <string name="top_score">top_score</string>
+    <string name="score">score</string>
+</resources>
