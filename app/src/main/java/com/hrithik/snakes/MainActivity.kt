@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val dm = DisplayMetrics()
-        this.display?.getRealMetrics(dm)
+        this.display?.getMetrics(dm)
         Constants.SCREEN_HEIGHT = dm.heightPixels
         Constants.SCREEN_WIDTH = dm.widthPixels
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

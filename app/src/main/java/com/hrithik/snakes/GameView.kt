@@ -18,7 +18,7 @@ class GameView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
     private var move = false
     private var mx = 0.0F
     private var my = 0.0F
-    private var r:Runnable
+    private var r: Runnable
 
     companion object {
         val sizeOfMap = 75 * Constants.SCREEN_WIDTH / 1080
@@ -37,14 +37,14 @@ class GameView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
             for (j in 0 until w) {
                 if ((j + i) % 2 == 0) {
                     arrGrass.add(Grass(bmGrass1, j * bmGrass1.width + Constants.SCREEN_WIDTH / 2 - w / 2 * bmGrass1.width,
-                            i * bmGrass1.height + 50 * Constants.SCREEN_HEIGHT / 1920, bmGrass1.width, bmGrass1.height))
+                            i * bmGrass1.height + 100 * Constants.SCREEN_HEIGHT / 1920, bmGrass1.width, bmGrass1.height))
                 } else {
                     arrGrass.add(Grass(bmGrass2, j * bmGrass2.width + Constants.SCREEN_WIDTH / 2 - w / 2 * bmGrass2.width,
-                            i * bmGrass2.height + 50 * Constants.SCREEN_HEIGHT / 1920, bmGrass2.width, bmGrass2.height))
+                            i * bmGrass2.height + 100 * Constants.SCREEN_HEIGHT / 1920, bmGrass2.width, bmGrass2.height))
                 }
             }
         }
-        
+
         snake = Snake(bmSnake, arrGrass[126].x, arrGrass[126].y, 4)
         r = Runnable { invalidate() }
     }
@@ -56,16 +56,16 @@ class GameView(ctx: Context, attrs: AttributeSet) : View(ctx, attrs) {
                 if (!move)
                     move = true
                 else {
-                    if (mx - event.x > 100 * Constants.SCREEN_WIDTH / 1080 && !snake.move_right) {
+                    if (mx - event.x > 100 && !snake.move_right) {
                         snake.setFalse()
                         snake.move_left = true
-                    } else if (event.x - mx > 100 * Constants.SCREEN_WIDTH / 1080 && !snake.move_left) {
+                    } else if (event.x - mx > 100 && !snake.move_left) {
                         snake.setFalse()
                         snake.move_right = true
-                    } else if (my - event.y > 100 * Constants.SCREEN_WIDTH / 1080 && !snake.move_bottom) {
+                    } else if (my - event.y > 100 && !snake.move_bottom) {
                         snake.setFalse()
                         snake.move_top = true
-                    } else if (event.y - my > 100 * Constants.SCREEN_WIDTH / 1080 && !snake.move_top) {
+                    } else if (event.y - my > 100 && !snake.move_top) {
                         snake.setFalse()
                         snake.move_bottom = true
                     }
